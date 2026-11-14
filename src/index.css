@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #F7F8F7;
+    color: #111827;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Telugu typography rules: generous line-height so tall vowel diacritics never clip */
+.telugu-body {
+  font-family: 'Noto Sans Telugu', 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.telugu-caption {
+  font-family: 'Noto Sans Telugu', 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.telugu-title {
+  font-family: 'Noto Sans Telugu', 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.45;
+}
+
+/* Minimum 48px touch target */
+.touch-target {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+/* Striped residual background */
+.bg-striped-residual {
+  background: repeating-linear-gradient(
+    45deg,
+    #F3F4F6,
+    #F3F4F6 6px,
+    #E5E7EB 6px,
+    #E5E7EB 12px
+  );
+}
+
+/* Crisp animations under 220ms */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-fast-reveal {
+    animation: fastReveal 200ms cubic-bezier(0.2, 0, 0, 1) forwards;
+  }
+}
+
+@keyframes fastReveal {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
